@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: keycloak-demo
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: keystoneclient
+            client-secret: 4nzrCV8eyiB3An6pOLRpqEQ5u7A4orHQ
+            scope: openid,profile,email
+            redirect-uri: http://localhost:8082/login/oauth2/code/keycloak # on peut l'ommet car ceci est la valeur par defaut
+        provider:
+          keycloak:
+            issuer-uri: http://104.197.209.248:8088/realms/keystonerealm
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
